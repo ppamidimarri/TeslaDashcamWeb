@@ -14,6 +14,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 * [Responsive File Manager](https://www.responsivefilemanager.com/)
 
 **[Screenshots](https://imgur.com/a/JcjnGYA)**
+
 Front page of the website
 ![Main page](https://i.imgur.com/3kkqZfe.png)
 
