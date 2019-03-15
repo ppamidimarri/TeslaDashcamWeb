@@ -1,0 +1,3 @@
+#!/bin/bash -eu
+
+sudo modprobe g_mass_storage
