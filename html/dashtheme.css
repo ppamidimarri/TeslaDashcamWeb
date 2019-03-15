@@ -1,0 +1,58 @@
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+	font-family: "Arial", Helvetica, sans-serif;
+}
+
+#maininfo {
+	font-family: "Arial", Helvetica, sans-serif;
+	font-size: 1.1em;
+}
+
+.footer {
+	z-index: 3;
+}
+
+.footer hr {
+	color: #000;
+	height: 1px;
+}
+
+button, .footer button {
+	font-family: "Arial", Helvetica, sans-serif;
+	font-size: 1.1em;
+	background-color: #000;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 2px;
+}
+
+.footer .date {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.8em;
+}
+
+.footer .overlay .overlaytext {
+	display: inline-block;
+	margin-top: 40px;
+}
+
+.overlay, .footer .overlay {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	width: 500px;
+	height: 100px;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 2px 2px 1px grey;
+	z-index: 2;
+	text-align: center;
+	font-family: "Arial", Helvetica, sans-serif;
+	font-size: 1em;
+}
