@@ -48,17 +48,20 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 **Configure nginx**
 
 1. `sudo nano /etc/nginx/sites-available/default`, edit these lines to look like:
-
+```
       index index.html index.htm index.php index.nginx-debian.html;
       location ~ \.php$ {
-         include snippets/fastcgi-php.conf;
-         # With php-fpm (or other unix sockets):
-         fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+            include snippets/fastcgi-php.conf;
+            # With php-fpm (or other unix sockets):
+            fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
       }
-2. `sudo nano /etc/nginx/nginx.confg`, edit the log location lines:
+ ```
 
-       	access_log /tmp/log/nginx/access.log;
-      	error_log /tmp/log/nginx/error.log;	
+2. `sudo nano /etc/nginx/nginx.confg`, edit the log location lines:
+```
+      access_log /tmp/log/nginx/access.log;
+      error_log /tmp/log/nginx/error.log;	
+```
 3. `mkdir -p /tmp/log/nginx`
 4. `sudo nginx -t`
 5. Restart nginx with `sudo /etc/init.d/nginx restart` 
