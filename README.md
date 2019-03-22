@@ -13,6 +13,63 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 * [nginx web server](https://www.nginx.com/resources/wiki/)
 * [Responsive File Manager](https://www.responsivefilemanager.com/)
 
+## Instructions
+
+**Load a Pi Zero W with Raspbian Stretch Lite and get SSH going**
+
+1. [Load Raspbian Stretch Lite on a Micro SD card](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up)
+2. On your computer, install [Notepad++](https://notepad-plus-plus.org/) or similar text editor that saves Unix-style line endings correctly
+3. In the `boot` drive of the Micro SD card, open `config.txt` in Notepad++ and add a new line at the end with this content and save it: `dtoverlay=dwc2`
+4. Open `cmdline.txt`, make these changes and save it:
+* Before `rootwait`, add `modules-load=dwc2,g_ether `
+* Remove the ` init=/usr/lib/raspi-config/init_resize.sh` at the end
+5. Add an empty file called `ssh` (no extension) in the same folder
+6. Safely eject the Micro SD card from your computer
+7. Insert the Micro SD card into a Pi and boot it up 
+8. Install [Putty](https://www.putty.org/) on your computer and try to connect to `raspberrypi.local`; you may need to install [Bonjour for Windows](https://support.apple.com/downloads/bonjour_for_windows) if that doesn't work
+9. Login in Putty using the id `pi` and password `raspberry`
+10. Change password, locale, timezone, etc. and enter your WiFi credentials using `sudo raspi-config`; do not reboot when exiting `raspi-config`
+11. Check that your Pi is connnecting to WiFi using `sudo wpa_cli -i wlan0 reconfigure`
+12. Confirm you have an IP address with `ifconfig wlan0`
+13. Edit `/boot/cmdline.txt` with your favorite editor using `sudo` to delete `g_ether` from the `modules-load` phrase so it looks like `modules-load=dwc2`
+14. Reboot with `sudo reboot`
+15. Use Putty and login with your new password to the `pi` account, you now have a working SSH connection
+
+**Update the Pi and load required software**
+
+1. `sudo apt update`
+2. `sudo apt upgrade`
+3. `sudo apt install nginx php-fpm php-mbstring`
+
+**Configure php-fpm**
+
+`sudo nano /etc/php/7.0/fpm/php.ini`, change `#cgi.fix_pathinfo=1` to `cgi.fix_pathinfo=0` and replace the line with `#session.save_path` to `session.save_path = “/tmp/php/sessions”`
+
+**Configure nginx**
+
+1. `sudo nano /etc/nginx/sites-available/default`, edit these lines to look like:
+
+      index index.html index.htm index.php index.nginx-debian.html;
+      location ~ \.php$ {
+         include snippets/fastcgi-php.conf;
+         # With php-fpm (or other unix sockets):
+         fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+      }
+2. `sudo nano /etc/nginx/nginx.confg`, edit the log location lines:
+
+       	access_log /tmp/log/nginx/access.log;
+      	error_log /tmp/log/nginx/error.log;	
+3. `mkdir -p /tmp/log/nginx`
+4. `sudo nginx -t`
+5. Restart nginx with `sudo /etc/init.d/nginx restart` 
+6. On your computer browser, navigate to the LAN IP of your Pi, you should see the default nginx welcome page 
+
+**Load website scripts**
+TODO: complete
+
+**Create USB drives on the Pi**
+TODO: complete
+
 ## [Screenshots](https://imgur.com/a/JcjnGYA)
 
 **Front page of the website**
