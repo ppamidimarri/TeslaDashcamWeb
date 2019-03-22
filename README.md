@@ -21,8 +21,8 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 2. On your computer, install [Notepad++](https://notepad-plus-plus.org/) or similar text editor that saves Unix-style line endings correctly
 3. In the `boot` drive of the Micro SD card, open `config.txt` in Notepad++ and add a new line at the end with this content and save it: `dtoverlay=dwc2`
 4. Open `cmdline.txt`, make these changes and save it:
-* Before `rootwait`, add `modules-load=dwc2,g_ether `
-* Remove the ` init=/usr/lib/raspi-config/init_resize.sh` at the end
+      * Before `rootwait`, add `modules-load=dwc2,g_ether `
+      * Remove the ` init=/usr/lib/raspi-config/init_resize.sh` at the end
 5. Add an empty file called `ssh` (no extension) in the same folder
 6. Safely eject the Micro SD card from your computer
 7. Insert the Micro SD card into a Pi and boot it up 
@@ -39,7 +39,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 1. `sudo apt update`
 2. `sudo apt upgrade`
-3. `sudo apt install nginx php-fpm php-mbstring`
+3. `sudo apt install nginx php-fpm php-mbstring git`
 
 **Configure php-fpm**
 
@@ -70,7 +70,16 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 6. On your computer browser, navigate to the LAN IP of your Pi, you should see the default nginx welcome page 
 
 **Load website scripts**
-TODO: complete
+1. `mkdir /home/pi/dash`
+2. Set up some permissions:
+      * `chown -R pi:www-data /home/pi/dash`
+      * `chown -R pi:www-data /var/www/html`
+3. `cd /home/pi/dash`
+3. Download the scripts with `git clone https://github.com/ppamidimarri/TeslaDashcamWeb`
+4. Move the website scripts with `cp -r html/ /var/www/`
+5. More permissions:
+      * `chmod +x /home/pi/dash/*`
+6. On your computer browser, navigate to the LAN IP of your Pi, you should see the Tesla Dashcam welcome page
 
 **Create USB drives on the Pi**
 TODO: complete
