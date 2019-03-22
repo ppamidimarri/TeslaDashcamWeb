@@ -106,11 +106,11 @@ log "All done"
       * `chown -R pi:www-data /home/pi/dash`
       * `chown -R pi:www-data /var/www/html`
 3. `cd /home/pi/dash`
-3. Download the scripts with `git clone https://github.com/ppamidimarri/TeslaDashcamWeb`
-4. Move the website scripts with `cp -r html/ /var/www/`
-5. More permissions:
+4. Download the scripts with `git clone https://github.com/ppamidimarri/TeslaDashcamWeb`
+5. Move the website scripts with `cp -r /home/pi/dash/TeslaDashcamWeb/html/ /var/www/`
+6. More permissions:
       * `chmod +x /home/pi/dash/*`
-6. On your computer browser, navigate to the LAN IP of your Pi, you should see the Tesla Dashcam welcome page
+7. On your computer browser, navigate to the LAN IP of your Pi, you should see the Tesla Dashcam welcome page
 
 **Configure [rclone](https://rclone.org/)**
 
