@@ -11,6 +11,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 ## Software
 * [Raspbian Stretch Lite](https://downloads.raspberrypi.org/raspbian_lite_latest)
 * [nginx web server](https://www.nginx.com/resources/wiki/)
+* [rclone](https://rclone.org/)
 * [Responsive File Manager](https://www.responsivefilemanager.com/)
 
 ## Instructions
@@ -70,6 +71,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 6. On your computer browser, navigate to the LAN IP of your Pi, you should see the default nginx welcome page 
 
 **Load website scripts**
+
 1. `mkdir /home/pi/dash`
 2. Set up some permissions:
       * `chown -R pi:www-data /home/pi/dash`
@@ -81,8 +83,19 @@ This code sets up a website using nginx to display the footage from a Tesla dash
       * `chmod +x /home/pi/dash/*`
 6. On your computer browser, navigate to the LAN IP of your Pi, you should see the Tesla Dashcam welcome page
 
+**Configure [rclone](https://rclone.org/)**
+
+1. `sudo -i`
+2. `rclone config` and follow prompts; recommended:
+     * Name the drive as `gdrive`
+     * Use `drive` for Google Drive
+     * Set up scope as `3` for `drive.file`
+
 **Create USB drives on the Pi**
-TODO: complete
+
+This section is work-in-progress as the teslausb project hasn't merged in latest changes needed to work with Tesla software versions 2019.5.1 and newer. For now, follow [these instructions](https://github.com/cimryan/teslausb/issues/119#issuecomment-473346734) as root with `sudo -i` to get it working. 
+
+Once you run the script fully and reboot the Pi, you should see the drive CAM automatically mount on your laptop (and MUSIC if you set that up). The CAM drive should have a folder called `TeslaCam` in it. If you then SSH into your Pi, you should see that your root filesystem is now read-only. After this point, if you need to change anything on the Pi, you can do it by running `sudo mount -o remount,rw /` and that will remount the root filesystem until the next reboot. Once you have confirmed that a CAM drive with `TeslaCam` folder in it exists, you can shutdown the Pi with `sudo shutdown now` and mount it in your car. 
 
 ## [Screenshots](https://imgur.com/a/JcjnGYA)
 
