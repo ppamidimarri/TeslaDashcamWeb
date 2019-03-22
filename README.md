@@ -132,12 +132,16 @@ Once you run the script fully and reboot the Pi, you should see the drive CAM au
 2. `cd /var/www/html`
 3. `mount /mnt/cam`
 3. `ln -s /mnt/cam/TeslaCam .`
+4. `ls /mnt/cam/TeslaCam` and see if folders `RecentClips` and `SavedClips` exist; if they don't create them with `mkdir /mnt/cam/TeslaCam/RecentClips` and `mkdir /mnt/cam/TeslaCam/SavedClips`
 4. `mkdir thumbs`
 5. `cd thumbs`
-6. `ln -s /mnt/cam/TeslaCam/RecentClips .`
-7. `ln -s /mnt/cam/TeslaCam/SavedClips .`
+6. `ln -s /mnt/cam/TeslaCam/RecentClips .` 
+7. `ln -s /mnt/cam/TeslaCam/SavedClips .` 
 4. `chmod 775 /var/www/html/thumbs/`
 8. `umount /mnt/cam`
+9. `sudo shutdown now`
+
+Congratulations, you are done now! Plug your Pi into the Tesla and wait for the dashcam icon to appear. Once it appears, open the browser in the car and navigate to the hostname/IP of the Pi. 
 
 ## [Screenshots](https://imgur.com/a/JcjnGYA)
 
