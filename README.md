@@ -124,7 +124,20 @@ log "All done"
 
 This section is work-in-progress as the teslausb project hasn't merged in latest changes needed to work with Tesla software versions 2019.5.1 and newer. For now, follow [these instructions](https://github.com/cimryan/teslausb/issues/119#issuecomment-473346734) as root with `sudo -i` to get it working. 
 
-Once you run the script fully and reboot the Pi, you should see the drive CAM automatically mount on your laptop (and MUSIC if you set that up). The CAM drive should have a folder called `TeslaCam` in it. If you then SSH into your Pi, you should see that your root filesystem is now read-only. After this point, if you need to change anything on the Pi, you can do it by running `sudo mount -o remount,rw /` and that will remount the root filesystem until the next reboot. Once you have confirmed that a CAM drive with `TeslaCam` folder in it exists, you can shutdown the Pi with `sudo shutdown now` and mount it in your car. 
+Once you run the script fully and reboot the Pi, you should see the drive CAM automatically mount on your laptop (and MUSIC if you set that up). The CAM drive should have a folder called `TeslaCam` in it. If you then SSH into your Pi, you should see that your root filesystem is now read-only. After this point, if you need to change anything on the Pi, you can do it by running `sudo mount -o remount,rw /` and that will remount the root filesystem until the next reboot. 
+
+**Create a couple of symlinks**
+
+1. `sudo mount -o remount,rw /`
+2. `cd /var/www/html`
+3. `mount /mnt/cam`
+3. `ln -s /mnt/cam/TeslaCam .'
+4. `mkdir thumbs`
+5. `cd thumbs`
+6. `ln -s /mnt/cam/TeslaCam/RecentClips .`
+7. `ln -s /mnt/cam/TeslaCam/SavedClips .`
+4. `chmod 775 /var/www/html/thumbs/`
+8. `umount /mnt/cam`
 
 ## [Screenshots](https://imgur.com/a/JcjnGYA)
 
