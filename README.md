@@ -141,20 +141,26 @@ Once you run the script fully and reboot the Pi, you should see the drive CAM au
 
 ## [Screenshots](https://imgur.com/a/JcjnGYA)
 
-**Front page of the website**
+**1. Front page of the website**
+
 ![Main page](https://i.imgur.com/3kkqZfe.png)
 
-**View of folders within the TeslaCam folder**
+**2. View of folders within the TeslaCam folder**
+
 ![Folder view](https://i.imgur.com/0Jm7qqu.png)
 
-**View of clips available**, with options to Preview, Rename, Delete or Upload them to Google Drive
+**3. View of clips available**, with options to Preview, Rename, Delete or Upload them to Google Drive
+
 ![Folder view](https://i.imgur.com/3UusX2P.png)
 
-**This is how Preview looks**
+**4. This is how Preview looks**
+
 ![Previewing a clip](https://i.imgur.com/hhtgNjC.png)
 
-**Uploading a clip to Google Drive**
+**5. Uploading a clip to Google Drive**
+
 ![Uploading...](https://i.imgur.com/um2Pbmr.png)
 
-**Upload status after it is done**
+**6. Upload status after it is done**
+
 ![Upload done](https://i.imgur.com/O0NRdr8.png)
