@@ -126,12 +126,12 @@ This section is work-in-progress as the teslausb project hasn't merged in latest
 
 Once you run the script fully and reboot the Pi, you should see the drive CAM automatically mount on your laptop (and MUSIC if you set that up). The CAM drive should have a folder called `TeslaCam` in it. If you then SSH into your Pi, you should see that your root filesystem is now read-only. After this point, if you need to change anything on the Pi, you can do it by running `sudo mount -o remount,rw /` and that will remount the root filesystem until the next reboot. 
 
-**Create a couple of symlinks**
+**Create some symlinks for the dashcam clips on the Pi**
 
 1. `sudo mount -o remount,rw /`
 2. `cd /var/www/html`
 3. `mount /mnt/cam`
-3. `ln -s /mnt/cam/TeslaCam .'
+3. `ln -s /mnt/cam/TeslaCam .`
 4. `mkdir thumbs`
 5. `cd thumbs`
 6. `ln -s /mnt/cam/TeslaCam/RecentClips .`
