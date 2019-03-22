@@ -70,6 +70,35 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 5. Restart nginx with `sudo /etc/init.d/nginx restart` 
 6. On your computer browser, navigate to the LAN IP of your Pi, you should see the default nginx welcome page 
 
+**Update sudoers and rc.local**
+
+1. Create a file called `/etc/sudoers.d/020_www-data-nopasswd` using `sudo visudo` with one line containing `www-data ALL=(ALL) NOPASSWD: ALL`
+2. `sudo nano /etc/rc.local` and add this code just before the line `exit 0`
+```
+LOGFILE=/tmp/rc.local.log
+
+function log () {
+	echo -n "$( date )" >> "$LOGFILE"
+	echo -n ": " >> "$LOGFILE"
+	echo "$1" >> "$LOGFILE"
+}
+
+log "Running fsck..."
+/sbin/fsck /mnt/cam -- -a >> "$LOGFILE" 2>&1 || echo ""
+log "Running modprobe..."
+/sbin/modprobe g_mass_storage >> "$LOGFILE" 2>&1
+log "Preparing temp files..."
+/bin/cp /root/.config/rclone/rclone.conf /tmp/rclone.conf >> "$LOGFILE" 2>&1
+/bin/chmod 644 /tmp/rclone.conf >> "$LOGFILE" 2>&1
+/bin/mkdir /var/log/nginx >> "$LOGFILE" 2>&1
+/bin/mkdir -p /tmp/php/sessions >> "$LOGFILE" 2>&1
+/bin/chown www-data:pi /tmp/php/sessions >> "$LOGFILE" 2>&1
+/bin/mkdir -p /tmp/log/nginx >> "$LOGFILE" 2>&1
+log "Starting nginx..."
+/usr/sbin/service nginx start >> "$LOGFILE" 2>&1
+log "All done"
+```
+
 **Load website scripts**
 
 1. `mkdir /home/pi/dash`
