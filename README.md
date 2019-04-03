@@ -99,7 +99,7 @@ log "Starting nginx..."
 /usr/sbin/service nginx start >> "$LOGFILE" 2>&1
 log "All done"
 ```
-4. `exit`
+4. `exit` (from interactive sudo session)
 
 **Load website scripts**
 
