@@ -72,8 +72,9 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 **Update sudoers and rc.local**
 
-1. `sudo echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/020_www-data-nopasswd`
-2. `sudo nano /etc/rc.local` and add this code just before the line `exit 0`
+1. `sudo -i` 
+2. `echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/020_www-data-nopasswd`
+3. `nano /etc/rc.local` and add this code just before the line `exit 0`
 ```
 LOGFILE=/tmp/rc.local.log
 
@@ -98,6 +99,7 @@ log "Starting nginx..."
 /usr/sbin/service nginx start >> "$LOGFILE" 2>&1
 log "All done"
 ```
+4. `exit`
 
 **Load website scripts**
 
