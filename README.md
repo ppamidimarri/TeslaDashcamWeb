@@ -60,7 +60,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
       }
  ```
 
-2. `sudo nano /etc/nginx/nginx.confg`, edit the log location lines:
+2. `sudo nano /etc/nginx/nginx.conf`, edit the log location lines:
 ```
       access_log /tmp/log/nginx/access.log;
       error_log /tmp/log/nginx/error.log;	
@@ -72,7 +72,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 **Update sudoers and rc.local**
 
-1. Create a file called `/etc/sudoers.d/020_www-data-nopasswd` using `sudo visudo` with one line containing `www-data ALL=(ALL) NOPASSWD: ALL`
+1. `sudo echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/020_www-data-nopasswd`
 2. `sudo nano /etc/rc.local` and add this code just before the line `exit 0`
 ```
 LOGFILE=/tmp/rc.local.log
