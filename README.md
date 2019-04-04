@@ -70,6 +70,14 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 5. Restart nginx with `sudo /etc/init.d/nginx restart` 
 6. On your computer browser, navigate to the LAN IP of your Pi, you should see the default nginx welcome page 
 
+**Configure [rclone](https://rclone.org/)**
+
+1. `sudo -i`
+2. `rclone config` and follow prompts; recommended:
+     * Name the drive as `gdrive`
+     * Use `drive` for Google Drive
+     * Set up scope as `3` for `drive.file`
+
 **Update sudoers and rc.local**
 
 1. `sudo -i` 
@@ -114,14 +122,6 @@ log "All done"
 7. More permissions:
       * `chmod +x /home/pi/dash/*`
 8. On your computer browser, navigate to the LAN IP of your Pi, you should see the Tesla Dashcam welcome page
-
-**Configure [rclone](https://rclone.org/)**
-
-1. `sudo -i`
-2. `rclone config` and follow prompts; recommended:
-     * Name the drive as `gdrive`
-     * Use `drive` for Google Drive
-     * Set up scope as `3` for `drive.file`
 
 **Create USB drives on the Pi**
 
