@@ -77,6 +77,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
      * Name the drive as `gdrive`
      * Use `drive` for Google Drive
      * Set up scope as `3` for `drive.file`
+3. `exit` (from interactive sudo session)
 
 **Update sudoers and rc.local**
 
