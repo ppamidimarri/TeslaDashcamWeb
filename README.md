@@ -114,8 +114,8 @@ log "All done"
 
 1. `mkdir /home/pi/dash`
 2. Set up some permissions:
-      * `chown -R pi:www-data /home/pi/dash`
-      * `chown -R pi:www-data /var/www/html`
+      * `sudo chown -R pi:www-data /home/pi/dash`
+      * `sudo chown -R pi:www-data /var/www/html`
 3. `cd /home/pi/dash`
 4. Download the scripts with `git clone https://github.com/ppamidimarri/TeslaDashcamWeb`
 5. Move the website scripts with `cp -r /home/pi/dash/TeslaDashcamWeb/html/ /var/www/`
