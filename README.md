@@ -46,7 +46,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 `sudo nano /etc/php/7.0/fpm/php.ini` and make these changes:
 * Replace the line that contains `cgi.fix_pathinfo=1` with `cgi.fix_pathinfo=0`
-* Replace the line that contains `session.save_path` with `session.save_path = “/tmp/php/sessions”`
+* Replace the line that contains `session.save_path` with `session.save_path = /tmp/php/sessions`
 
 **Configure nginx**
 
