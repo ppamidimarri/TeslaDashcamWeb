@@ -100,7 +100,7 @@ log "Running modprobe..."
 log "Preparing temp files..."
 /bin/cp /root/.config/rclone/rclone.conf /tmp/rclone.conf >> "$LOGFILE" 2>&1
 /bin/chmod 644 /tmp/rclone.conf >> "$LOGFILE" 2>&1
-/bin/mkdir /var/log/nginx >> "$LOGFILE" 2>&1
+/bin/mkdir -p /var/log/nginx >> "$LOGFILE" 2>&1
 /bin/mkdir -p /tmp/php/sessions >> "$LOGFILE" 2>&1
 /bin/chown www-data:pi /tmp/php/sessions >> "$LOGFILE" 2>&1
 /bin/mkdir -p /tmp/log/nginx >> "$LOGFILE" 2>&1
