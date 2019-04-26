@@ -73,16 +73,18 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 **Configure [rclone](https://rclone.org/)**
 
 1. `sudo -i`
-2. `rclone config` and follow prompts; recommended:
+2. Install rclone with `curl -L https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh | bash`
+3. `rclone config` and follow prompts; recommended:
      * Name the drive as `gdrive`
      * Use `drive` for Google Drive
      * Set up scope as `3` for `drive.file`
-3. `exit` (from interactive sudo session)
+4. `exit` (from interactive sudo session)
 
 **Update sudoers and rc.local**
 
 1. `sudo -i` 
 2. `echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/020_www-data-nopasswd`
+3. Check the location of your rclone configuration file: try `ls /root/.config/rclone/rclone.conf` and `ls /root/.rclone.conf` and see which one it is. If you file is not at `/root/.config/rclone/rclone.conf`, you need up replace this with the correct location of that .conf file in the next step when updating `/etc/rc.local`
 3. `nano /etc/rc.local` and add this code just before the line `exit 0`
 ```
 LOGFILE=/tmp/rc.local.log
