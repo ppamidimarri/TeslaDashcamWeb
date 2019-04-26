@@ -84,7 +84,7 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 1. `sudo -i` 
 2. `echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/020_www-data-nopasswd`
-3. Check the location of your rclone configuration file: try `ls /root/.config/rclone/rclone.conf` and `ls /root/.rclone.conf` and see which one it is. If you file is not at `/root/.config/rclone/rclone.conf`, you need up replace this with the correct location of that .conf file in the next step when updating `/etc/rc.local`
+3. Check the location of your rclone configuration file: try `ls /root/.config/rclone/rclone.conf` and `ls /root/.rclone.conf` and see which one it is. If your file is not at `/root/.config/rclone/rclone.conf`, you need to replace this with the correct location of that .conf file in the next step when updating `/etc/rc.local`
 3. `nano /etc/rc.local` and add this code just before the line `exit 0`
 ```
 LOGFILE=/tmp/rc.local.log
