@@ -3,7 +3,7 @@
 ## Introduction
 This code sets up a website using nginx to display the footage from a Tesla dashcam, using a Raspberry Pi Zero W as the USB drive. It uses the [teslausb project](https://github.com/cimryan/teslausb) for creating the USB drives on the Pi. 
 
-Note: The Tesla car browser doesn't load local websites. So if you want TeslaDashcamWeb to load on the car browser, you will need to perform the steps mentioned [here]https://github.com/ppamidimarri/TeslaDashcamWeb/issues/7#issuecomment-505220969) after you have TeslaDashcamWeb working. 
+Note: The Tesla car browser doesn't load local websites. So if you want TeslaDashcamWeb to load on the car browser, you will need to perform the steps mentioned [here](https://github.com/ppamidimarri/TeslaDashcamWeb/issues/7#issuecomment-505220969) after you have TeslaDashcamWeb working. 
 
 ## Hardware
 * Raspberry Pi Zero W
