@@ -5,6 +5,10 @@ This code sets up a website using nginx to display the footage from a Tesla dash
 
 Note: The Tesla car browser doesn't load local websites. So if you want TeslaDashcamWeb to load on the car browser, you will need to perform the steps mentioned [here](https://github.com/ppamidimarri/TeslaDashcamWeb/issues/7#issuecomment-505220969) after you have TeslaDashcamWeb working. 
 
+**Update August 2019**
+
+I have stopped using TeslaDashcamWeb because I wanted to merge the three videos from the car into one and view them together in a website. I have created the [TeslaCamMerge project](https://github.com/ppamidimarri/TeslaCamMerge) to accomplish this. I am running this now instead of TeslaDashcamWeb.
+
 ## Hardware
 * Raspberry Pi Zero W
 * Micro-USB to USB cable, plugged into one of the Tesla's USB ports
